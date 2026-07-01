@@ -7,6 +7,10 @@ function NoteCard(props) {
 
     async function deleteNote() {
 
+        if(!confirm("Are you sure you want to delete this note?")){
+            return;
+        }
+
         let response = await fetch('http://localhost:3000/notes-api/delete', {
             method: 'DELETE',
             headers: {

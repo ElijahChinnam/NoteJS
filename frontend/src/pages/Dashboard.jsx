@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import UserContext from '../contexts/UserContext';
 import NotesContext from '../contexts/NotesContext';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import NoteCard from '../components/NoteCard';
 
 function Dashboard() {
@@ -38,7 +38,7 @@ function Dashboard() {
   return (
     <>
       <div className=' bg-gray-800 h-full pb-10'>
-        <h1 className='text-white text-3xl text-center pt-20'>Notes</h1>
+        <h1 className='text-white text-3xl text-center pt-20'><Link to='/publicNotes' className='hover:text-blue-500'>Public Notes</Link> / My Notes</h1>
         <div className='min-h-screen'>
           <div className='grid grid-cols-3 pt-10 h-full'>
             {

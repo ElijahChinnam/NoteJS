@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const User = require('../Models/UserModel');
+const Note = require('../Models/NoteModel');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
@@ -53,6 +54,7 @@ router.put('/update', async (req, res) => {
 router.delete('/delete', async (req, res) => {
     const {username} = req.body;
     let response = await User.deleteOne({username: username});
+    response = await Note.deleteMany({username: username});
     res.send({'message': 'User Deleted'});
 });
 
